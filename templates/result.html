@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="result-container">
+
+<h2>Disease Prediction Result</h2>
+
+<!-- ALERT BOX -->
+{% if alert_message %}
+<div class="alert-box">
+🚨 <b>{{alert_message}}</b>
+</div>
+{% endif %}
+
+<div class="card">
+
+<h3>Predicted Disease</h3>
+
+<p class="disease">{{disease}}</p>
+
+<p>Confidence: {{confidence}}%</p>
+
+<p class="risk {{risk}}">Risk Level: {{risk}}</p>
+
+</div>
+
+
+<!-- TOP 3 POSSIBLE DISEASES -->
+
+<div class="card">
+
+<h3>Top 3 Possible Diseases</h3>
+
+
+{% for d,p in top3 %}
+
+
+<b>{{d}}</b> — {{p}}%
+
+{% endfor %}
+
+
+</div>
+
+
+<div class="card">
+
+<h3>Your Symptoms</h3>
+
+
+{% for s in symptoms %}
+
+<li>{{s}}</li>
+
+{% endfor %}
+
+
+</div>
+
+
+<div class="card">
+
+<h3>Medical Advice</h3>
+
+<p>{{advice}}</p>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

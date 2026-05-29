@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Medical Diagnosis</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>AI Disease Prediction System</h1>
+
+<p class="subtitle">Select your symptoms</p>
+
+<form action="/predict" method="post">
+
+<div class="symptom-grid">
+
+{% for s in symptoms %}
+
+<label class="checkbox">
+
+<input type="checkbox" name="{{s}}">
+
+<span>{{s.replace('_',' ')}}</span>
+
+</label>
+
+{% endfor %}
+
+</div>
+
+<button class="predict-btn">Predict Disease</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>
